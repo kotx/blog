@@ -64,11 +64,12 @@ article header {
     margin-bottom: 2rem;
 }
 
-article code:not(pre code) {
+code:not(pre code) {
     color: #f264ff;
 }
 
-article pre {
+pre {
+    font-feature-settings: off;
     padding: 0.75rem;
     border-radius: 8px;
 }
