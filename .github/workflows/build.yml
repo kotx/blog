@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        run: go generate && go run main.go
+        run: go install github.com/a-h/templ/cmd/templ@latest && go generate && go run main.go
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
