@@ -9,7 +9,7 @@ type PostMeta struct {
 }
 
 templ Post(meta PostMeta, content []byte) {
-	@base(meta.Title) {
+	@base(meta.Title, meta.Blurb) {
 		<article>
 			<header>
 				<h1>{ meta.Title }</h1>

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-templ base(title string) {
+templ base(title, description string) {
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8"/>
@@ -14,16 +14,22 @@ templ base(title string) {
 			<link rel="stylesheet" href="/site.css"/>
 			<link rel="preconnect" href="https://rsms.me/"/>
 			<link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
+			// Meta tags
+			<meta property="og:type" content="website"/>
+			<meta property="og:site_name" content="Kot's Blog"/>
+			<meta property="og:locale" content="en"/>
+			<meta name="title" content={ title }/>
+			<meta name="description" content={ description }/>
+			<meta name="author" content="Kot"/>
+			<meta name="theme-color" content="#f264ff"/>
+			<link rel="webmention" href="https://webmention.io/kot.pink/webmention"/>
 		</head>
 		<body>
 			{ children... }
-
 			<details id="comments">
 				<summary id="commentsSummary">Comments</summary>
-
 				<noscript>JavaScript must be enabled to view comments here.</noscript>
 				<noscript>Alternatively, view on <a href="https://github.com/kotx/blog/discussions">GitHub Discussions</a>!</noscript>
-
 				<script>
 					let commentsLoaded = false;
 					const comments = document.getElementById("comments");
@@ -47,25 +53,9 @@ templ base(title string) {
 				
 					window.addEventListener("message", handleGiscusEvent);
 				</script>
-
-				<script src="https://giscus.app/client.js"
-						data-repo="kotx/blog"
-						data-repo-id="R_kgDOMYvuow"
-						data-category="Announcements"
-						data-category-id="DIC_kwDOMYvuo84ChCB-"
-						data-mapping="pathname"
-						data-strict="1"
-						data-reactions-enabled="1"
-						data-emit-metadata="0"
-						data-input-position="top"
-						data-theme="noborder_gray"
-						data-lang="en"
-						data-loading="lazy"
-						crossorigin="anonymous"
-						async>
+				<script src="https://giscus.app/client.js" data-repo="kotx/blog" data-repo-id="R_kgDOMYvuow" data-category="Announcements" data-category-id="DIC_kwDOMYvuo84ChCB-" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="noborder_gray" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
 				</script>
 			</details>
-			
 			<footer>
 				&copy; Kot { strconv.Itoa(time.Now().Year()) }
 				-
