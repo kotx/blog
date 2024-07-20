@@ -1,0 +1,78 @@
+package pages
+
+import (
+	"strconv"
+	"time"
+)
+
+templ base(title string) {
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="/site.css"/>
+			<link rel="preconnect" href="https://rsms.me/"/>
+			<link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
+		</head>
+		<body>
+			{ children... }
+
+			<details id="comments">
+				<summary id="commentsSummary">Comments</summary>
+
+				<noscript>JavaScript must be enabled to view comments here.</noscript>
+				<noscript>Alternatively, view on <a href="https://github.com/kotx/blog/discussions">GitHub Discussions</a>!</noscript>
+
+				<script>
+					let commentsLoaded = false;
+					const comments = document.getElementById("comments");
+					const commentsSummary = document.getElementById("commentsSummary");
+
+					comments.addEventListener("toggle", (event) => {
+						if (comments.open && !commentsLoaded) {
+							commentsSummary.innerText = "Comments (loading...)";
+						}
+					});
+
+					function handleGiscusEvent(event) {
+						if (event.origin !== 'https://giscus.app') return;
+						if (!(typeof event.data === 'object' && event.data.giscus)) return;
+
+						if (event.data.giscus.resizeHeight > 0) {
+							commentsSummary.innerText = "Comments";
+							commentsLoaded = true;
+						}
+					}
+				
+					window.addEventListener("message", handleGiscusEvent);
+				</script>
+
+				<script src="https://giscus.app/client.js"
+						data-repo="kotx/blog"
+						data-repo-id="R_kgDOMYvuow"
+						data-category="Announcements"
+						data-category-id="DIC_kwDOMYvuo84ChCB-"
+						data-mapping="pathname"
+						data-strict="1"
+						data-reactions-enabled="1"
+						data-emit-metadata="0"
+						data-input-position="top"
+						data-theme="noborder_gray"
+						data-lang="en"
+						data-loading="lazy"
+						crossorigin="anonymous"
+						async>
+				</script>
+			</details>
+			
+			<footer>
+				&copy; Kot { strconv.Itoa(time.Now().Year()) }
+				-
+				<a href="/rss.xml">rss</a>
+				-
+				<a href="https://github.com/kotx/blog" target="_blank">source</a>
+			</footer>
+		</body>
+	</html>
+}

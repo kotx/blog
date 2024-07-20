@@ -1,0 +1,8 @@
+{
+    "origins": [
+        "https://blog.kot.pink"
+    ],
+    "originsRegex": [
+        "http://localhost:[0-9]+"
+    ]
+}

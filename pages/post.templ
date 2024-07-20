@@ -1,0 +1,27 @@
+package pages
+
+type PostMeta struct {
+	Title   string
+	Blurb   string
+	Slug    string
+	Created string
+	Updated string
+}
+
+templ Post(meta PostMeta, content []byte) {
+	@base(meta.Title) {
+		<article>
+			<header>
+				<h1>{ meta.Title }</h1>
+				<span>
+					{ meta.Created } &ndash;
+					<span style="font-style: italic">{ meta.Blurb }</span> &mdash; 
+					<a href="/">more posts</a>
+				</span>
+			</header>
+			<main>
+				@markdown(content)
+			</main>
+		</article>
+	}
+}

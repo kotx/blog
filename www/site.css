@@ -1,0 +1,79 @@
+:root {
+    font-size: 13pt;
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    background-color: #101010;
+    color: #f8f8f8;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    :root {
+        padding-top: 6%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    article main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+a {
+    color: #f264ff;
+    text-decoration: none;
+}
+
+a:visited:not(.anchor) {
+    color: #cfb1d2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #f264ff;
+    margin-bottom: 1rem;
+}
+
+article a.anchor {
+    font-size: 1.25rem;
+}
+
+article header {
+    margin-bottom: 2rem;
+}
+
+article code:not(pre code) {
+    color: #f264ff;
+}
+
+article pre {
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+#comments {
+    margin-top: 2rem;
+    cursor: pointer;
+}
