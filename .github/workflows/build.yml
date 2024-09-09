@@ -30,12 +30,10 @@ jobs:
         uses: actions/setup-go@v5.0.2
         with:
           cache: true
-      - name: Install Templ
-        run: go install github.com/a-h/templ/cmd/templ@v0.2.747
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        run: go generate && go run main.go
+        run: make
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
