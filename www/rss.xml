@@ -4,8 +4,8 @@
     <link>https://blog.kot.pink</link>
     <description>Heya! This is where I document my thoughts and the results of my adventures.</description>
     <managingEditor>kot@yukata.dev (Kot C)</managingEditor>
-    <pubDate>Sun, 08 Sep 2024 21:59:42 -0500</pubDate>
-    <lastBuildDate>Sun, 08 Sep 2024 21:59:42 -0500</lastBuildDate>
+    <pubDate>Thu, 27 Feb 2025 22:47:20 -0600</pubDate>
+    <lastBuildDate>Thu, 27 Feb 2025 22:47:20 -0600</lastBuildDate>
     <item>
       <title>Building a static site generator using Go and Templ</title>
       <link>https://blog.kot.pink/ssg</link>

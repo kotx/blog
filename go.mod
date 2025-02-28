@@ -1,8 +1,10 @@
 module kot.pink/blog
 
-go 1.22.5
+go 1.23
 
-require github.com/a-h/templ v0.2.778
+toolchain go1.24.0
+
+require github.com/a-h/templ v0.3.833
 
 require (
 	github.com/gorilla/feeds v1.2.0
